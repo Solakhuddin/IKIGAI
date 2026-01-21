@@ -1,0 +1,75 @@
+{% extends 'restaurant/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="booking-bg">
+    <div class="container">
+        
+        <div class="row booking-card g-0" data-aos="zoom-in" data-aos-duration="800">
+            
+            <div class="col-lg-5 d-none d-lg-block booking-image-side">
+                <div class="image-overlay">
+                    <h2 style="font-family: 'Cinzel', serif;">Reserve Your Spot</h2>
+                    <p class="mt-3">Experience the finest Japanese dining in town. Limited seats available for Omakase.</p>
+                    
+                    <ul class="list-unstyled benefit-list mt-4">
+                        <li>✅ Instant Confirmation</li>
+                        <li>✅ No Booking Fees</li>
+                        <li>✅ Special Requests Accepted</li>
+                        <li>✅ Private Rooms Available</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-7 p-5">
+                <h3 class="fw-bold mb-4" style="color: #333;">Table Reservation</h3>
+                
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">First Name</label>
+                            {{ form.first_name }} </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Last Name</label>
+                            {{ form.last_name }}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Date</label>
+                            {{ form.reservation_date }}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Time</label>
+                            {{ form.reservation_time }}
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Number of Guests</label>
+                            {{ form.guest_number }} 
+                            </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small">Seating Type</label>
+                            {{ form.seating_type }}
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label text-muted small">Special Requests (Optional)</label>
+                            {{ form.comment }}
+                        </div>
+
+                        <div class="col-12 mt-4">
+                            <button type="submit" class="btn btn-custom w-100 py-3">
+                                Confirm Booking &rarr;
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+</div>
+{% endblock %}

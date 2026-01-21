@@ -1,0 +1,7 @@
+{% extends 'restaurant/base.html' %}
+{%  load static  %}
+{% block content %}
+    <h1>{{ menu.name }}</h1>
+    <h3>Price: Rp, {{ menu.price }}.00</h3>
+    <p>{{ menu.description }}</p>
+{% endblock %}

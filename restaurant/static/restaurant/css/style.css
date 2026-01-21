@@ -1,0 +1,190 @@
+body { background-color: #f4f4f4; }
+
+/* style.css update */
+
+/* HERO SECTION */
+.hero-section {
+    /* Gambar Background Sushi Gelap */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 90vh; /* Tinggi 90% dari layar */
+    display: flex;
+    align-items: center; /* Tulisan di tengah vertikal */
+    justify-content: center; /* Tulisan di tengah horizontal */
+    color: white;
+    text-align: center;
+}
+
+.hero-title {
+    font-family: 'Cinzel', serif; /* Font mewah yang kita import kemarin */
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.btn-custom {
+    background-color: #f1c40f; /* Warna Kuning Lemon */
+    color: #000;
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 50px; /* Tombol bulat */
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #d4ac0d;
+    color: white;
+    transform: scale(1.05); /* Efek membesar dikit pas di-hover */
+}
+
+/* --- MENU SECTION STYLES --- */
+
+.menu-category-title {
+    font-family: 'Cinzel', serif;
+    border-left: 5px solid #f1c40f; /* Garis kuning di kiri judul */
+    padding-left: 15px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.card-menu {
+    border: none; /* Hilangkan border garis bawaan bootstrap */
+    border-radius: 15px;
+    overflow: hidden; /* Agar gambar tidak keluar dari radius */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Bayangan sangat halus */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Agar tinggi kartu sama rata */
+}
+
+/* Efek saat mouse melayang di atas kartu */
+.card-menu:hover {
+    transform: translateY(-5px); /* Naik ke atas 5px */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Bayangan makin tebal */
+}
+
+.card-menu img {
+    height: 200px; /* Paksa tinggi gambar sama */
+    object-fit: cover; /* Potong gambar agar proporsional (tidak gepeng) */
+}
+
+.price-tag {
+    font-weight: bold;
+    color: #d35400; /* Warna oranye tua */
+    font-size: 1.2rem;
+}
+
+/* --- BOOKING SECTION --- */
+
+/* Background halaman booking agar tidak putih polos */
+.booking-bg {
+    background-color: #f8f9fa; /* Abu-abu sangat muda */
+    padding: 60px 0;
+}
+
+.booking-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* Shadow tebal agar terlihat melayang */
+    overflow: hidden; /* Agar gambar tidak keluar radius */
+}
+
+.booking-image-side {
+    background: url('https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    min-height: 100%; /* Pastikan tinggi mengikuti form */
+    position: relative;
+}
+
+/* Overlay hitam transparan di atas gambar agar teks terbaca */
+.image-overlay {
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+    color: white;
+}
+
+.benefit-list li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* --- BLOG SECTION --- */
+
+/* Kartu Blog */
+.blog-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    background: white;
+    height: 100%;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px); /* Naik dikit pas di hover */
+}
+
+/* Container Gambar agar bisa di-zoom */
+.blog-img-wrapper {
+    overflow: hidden; /* Penting agar zoom tidak keluar kotak */
+    height: 220px;
+    position: relative;
+}
+
+.blog-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease; /* Smooth zoom */
+}
+
+.blog-card:hover .blog-img-wrapper img {
+    transform: scale(1.1); /* Efek Zoom-in */
+}
+
+/* Tanggal & Meta */
+.blog-date {
+    font-size: 0.85rem;
+    color: #f1c40f; /* Kuning Lemon */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.blog-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.blog-title:hover {
+    color: #d35400; /* Berubah warna pas di-hover */
+}
+
+/* Tombol Read More */
+.btn-read-more {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 2px solid #f1c40f;
+    transition: 0.3s;
+}
+
+.btn-read-more:hover {
+    background-color: #f1c40f;
+    color: white;
+    padding: 2px 5px;
+}

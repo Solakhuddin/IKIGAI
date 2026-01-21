@@ -1,0 +1,58 @@
+{% extends 'restaurant/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="bg-dark text-white text-center py-5">
+        <h1 style="font-family: 'Cinzel', serif;">Our Seasonal Menu</h1>
+        <p class="lead text-muted">Curated dishes from the heart of Japan.</p>
+    </div>
+
+    <div class="container my-5">
+        
+        {% for category in categories %}
+            
+            {% if category.menu_items.all %}
+            <div data-aos="fade-up"> <h2 class="menu-category-title">{{ category.name }}</h2>
+
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    
+                    {% for item in category.menu_items.all %}
+                    <div class="col">
+                        <div class="card card-menu h-100">
+                            
+                            {% if item.image %}
+                                <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+                            {% else %}
+                                <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
+                                    <span>No Image Available</span>
+                                </div>
+                            {% endif %}
+
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title fw-bold">{{ item.name }}</h5>
+                                    <span class="price-tag">${{ item.price }}</span>
+                                </div>
+                                
+                                <p class="card-text text-muted flex-grow-1">{{ item.description|truncatechars:80 }}</p>
+                                
+                                <div class="mt-3">
+                                    {% if item.is_spicy %}
+                                        <span class="badge bg-danger">🌶 Spicy</span>
+                                    {% endif %}
+                                    
+                                    {% if not item.is_available %}
+                                        <span class="badge bg-secondary">Sold Out</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                </div>
+            </div>
+            {% endif %}
+            
+        {% endfor %}
+    </div>
+{% endblock %}
