@@ -2,7 +2,7 @@
 
 > A full-stack Django web application for a Japanese Restaurant, featuring a responsive modern UI, advanced reservation system, and dynamic content management.
 
-![Project Banner](https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80)
+![Project Banner](./Home.png)
 
 ## 📖 Overview
 This project demonstrates a production-ready restaurant website built with **Django**. It moves beyond basic CRUD by implementing business logic specific to Japanese hospitality (*Omotenashi*), such as specific seating reservations (Omakase Counter vs Tables) and a categorized seasonal menu.
