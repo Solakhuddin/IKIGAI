@@ -1,60 +1,92 @@
-{% extends 'restaurant/base.html' %} {% load static %} {% block content %}
-<section>
-  <article>
-    <h1>About Us</h1>
-    <!--Begin row-->
-    <div class="row">
-      <!--Begin col-->
-      <div class="column">
-        <p>
-          Based in Chicago, Illinois, Little Lemon is a family owned
-          Mediterranean restaurant, focused on traditional recipes served with a
-          modern twist.
-        </p>
-        <p>
-          The chefs draw inspiration from Italian, Greek, and Turkish culture
-          and have a menu of 12-15 items that they rotate seasonally.
-        </p>
+{% extends 'restaurant/base.html' %}
+{% load static %}
 
-        <p>
-          The restaurant has a rustic and relaxed atmosphere with moderate
-          prices, making it a popular place for a meal any time of the day.
-        </p>
+{% block content %}
 
-        <p>
-          Little Lemon is owned by two Italian brothers, Mario and Adrian, who
-          moved to the United States to pursue their shared dream of owning a
-          restaurant.
-        </p>
-
-        <p>
-          To craft the menu, Mario relies on family recipes and his experience
-          as a chef in Italy.
-        </p>
-
-        <p>
-          Adrian does all the marketing for the restaurant and led the effort to
-          expand the menu beyond classic Italian to incorporate additional
-          cuisines from the mediterranean region.
-        </p>
-      </div>
-      <!--End col-->
-
-      <!--Begin col-->
-      <div class="column">
-        <figure class="figure">
-          <img
-            src="{% static 'img/mario-and-adrian.jpg' %}"
-            alt="Mario and Adrian"
-          />
-          <figcaption class="figure-caption">
-            Little Lemon owners Mario and Adrian.
-          </figcaption>
-        </figure>
-      </div>
-      <!--End col-->
+<div class="bg-dark text-white text-center py-5">
+    <div class="container" data-aos="fade-down">
+        <h1 class="display-4 fw-bold" style="font-family: 'Cinzel', serif;">Our Heritage</h1>
+        <p class="lead text-muted mb-0">The relentless pursuit of perfection.</p>
+        <hr class="my-4 mx-auto" style="width: 60px; border-top: 3px solid #f1c40f; opacity: 1;">
     </div>
-    <!--End row-->
-  </article>
+</div>
+
+<section class="py-5 bg-white">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            
+            <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right" data-aos-duration="1000">
+                <div class="position-relative">
+                    <img src="{% static 'img/kitchen.jpg' %}" 
+                         alt="Head Chef Cooking" 
+                         class="img-fluid rounded-3 shadow-lg"
+                         style="filter: brightness(0.9);">
+                    
+                    <div class="bg-warning text-dark p-3 position-absolute bottom-0 start-0 m-4 rounded shadow d-none d-md-block">
+                        <span class="d-block small fw-bold text-uppercase">Est.</span>
+                        <span class="h3 fw-bold m-0" style="font-family: 'Cinzel', serif;">1995</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 ps-lg-5" data-aos="fade-left" data-aos-duration="1000">
+                <h5 class="text-warning text-uppercase fw-bold ls-1">Who We Are</h5>
+                <h2 class="display-5 mb-4" style="font-family: 'Cinzel', serif;">A Tale of Two Cities</h2>
+                
+                <p class="lead text-muted">Started in a small alley in Tokyo, perfected in the heart of your city.</p>
+                
+                <p>
+                    Little Lemon was founded on a simple principle: <strong>Respect the ingredients.</strong> 
+                    Our founder, Chef Hikaru, believes that the role of a chef is not to overpower nature, 
+                    but to elevate it.
+                </p>
+                <p>
+                    Every morning, we import the freshest seafood directly from Toyosu Market. 
+                    Using traditional <em>Edomae</em> techniques combined with modern culinary innovation, 
+                    we craft dishes that are visually stunning and deeply flavorful.
+                </p>
+                
+                <!-- <div class="mt-4">
+                    <img src="{% static 'img/kitchen.jpg' %}" 
+                         alt="Signature" style="height: 50px; opacity: 0.6;">
+                    <p class="small text-muted mt-2">Hikaru Tanaka - Head Chef</p>
+                </div> -->
+            </div>
+            
+        </div>
+    </div>
 </section>
+
+<section class="py-5" style="background-color: #f8f9fa;">
+    <div class="container text-center py-4">
+        <h2 class="mb-5" style="font-family: 'Cinzel', serif;">Our Philosophy</h2>
+        
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                <div class="p-4 bg-white rounded shadow-sm h-100">
+                    <h3 class="h2 text-warning mb-3">旬</h3>
+                    <h4 class="fw-bold">Shun (Seasonality)</h4>
+                    <p class="text-muted text-small mt-3">We only serve ingredients at their peak flavor. Our menu changes with the seasons.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-4 bg-white rounded shadow-sm h-100">
+                    <h3 class="h2 text-warning mb-3">こだわり</h3>
+                    <h4 class="fw-bold">Kodawari (Perfection)</h4>
+                    <p class="text-muted text-small mt-3">The relentless pursuit of perfection in every grain of rice and every slice of fish.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-4 bg-white rounded shadow-sm h-100">
+                    <h3 class="h2 text-warning mb-3">おもてなし</h3>
+                    <h4 class="fw-bold">Omotenashi (Hospitality)</h4>
+                    <p class="text-muted text-small mt-3">Wholehearted hospitality. We anticipate your needs before you even ask.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

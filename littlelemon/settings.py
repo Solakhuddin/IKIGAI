@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -137,3 +138,40 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # The settings for media files have been updated for the Graded assessment
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# --- JAZZMIN SETTINGS ---
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Ikigai Admin",
+
+    "site_header": "Ikigai",
+
+    "site_logo": None, 
+    
+    "welcome_sign": "Welcome to Ikigai Dashboard",
+
+    "copyright": "Ikigai Ltd",
+
+    "search_model": ["auth.User", "blog.Post", "menu.MenuItem"],
+
+    "topmenu_links": [
+        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "View Site", "url": "/", "new_window": True},
+    ],
+
+    "order_with_respect_to": ["blog", "menu", "restaurant", "auth"],
+
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        
+        "blog.Post": "fas fa-newspaper",
+        "restaurant.Booking": "fas fa-calendar-alt",  
+        "restaurant.Menu": "fas fa-utensils",         
+        "restaurant.Category": "fas fa-tags",
+        # "restaurant.Category": "fas fa-list",
+        # "restaurant.Menu": "fas fa-utensils",
+        # "restaurant.Booking": "fas fa-calendar-check",
+    },
+}
