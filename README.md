@@ -46,29 +46,28 @@ Prerequisites: Python 3 installed.
    ```bash
    git clone [https://github.com/Solakhuddin/IKIGAI.git](https://github.com/Solakhuddin/IKIGAI.git)
    cd IKIGAI
-   ````
-
+   ```
 2. **Install Dependencies (Using Pipenv)**
-  ````bash
+  ```bash
   pip install pipenv
   pipenv install
   pipenv shell
-  ````bash
+  ```
 3. **Apply Migrations**
   ````bash
   python manage.py makemigrations
   python manage.py migrate
-  ````
+  ```
 
 4. **Create Superuser (For Admin Panel)**
-  ````bash
+  ```bash
   python manage.py createsuperuser
-  ````
+  ```
 
 5. **Run the Server**  
-  ````bash
+  ```bash
   python manage.py runserver
-  ````
+  ```
 
 ## 👮‍♂️ Admin Dashboard Feature
 
