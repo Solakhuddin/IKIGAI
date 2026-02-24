@@ -54,7 +54,7 @@ Prerequisites: Python 3 installed.
   pipenv shell
   ```
 3. **Apply Migrations**
-  ````bash
+  ```bash
   python manage.py makemigrations
   python manage.py migrate
   ```
