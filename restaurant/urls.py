@@ -10,5 +10,4 @@ urlpatterns = [
     path('menu/', views.menu, name="menu"),
     path('menu/<int:pk>/', views.menu_detail, name="menu_detail"),
     # pr nambah link blog
-    # Add the remaining URL path configurations here
 ]

@@ -34,6 +34,7 @@
                                 </div>
                                 
                                 <p class="card-text text-muted flex-grow-1">{{ item.description|truncatechars:80 }}</p>
+                                <p><a href="{% url 'menu_detail' item.pk %}" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">See Details --> </a></p>
                                 
                                 <div class="mt-3">
                                     {% if item.is_spicy %}

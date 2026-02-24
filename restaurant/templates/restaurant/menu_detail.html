@@ -1,7 +1,97 @@
 {% extends 'restaurant/base.html' %}
-{%  load static  %}
+{% load static %}
+
 {% block content %}
-    <h1>{{ menu.name }}</h1>
-    <h3>Price: Rp, {{ menu.price }}.00</h3>
-    <p>{{ menu.description }}</p>
+
+<div class="bg-light py-3 border-bottom">
+    <div class="container">
+        <a href="{% url 'menu' %}" class="text-decoration-none text-muted fw-bold small">
+            &larr; Back to Menu List
+        </a>
+    </div>
+</div>
+
+<div class="container py-5 my-4">
+    <div class="row align-items-center">
+        
+        <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+            <div class="position-relative">
+                {% if menu.image %}
+                    <img src="{{ menu.image.url }}" class="img-fluid rounded-4 shadow-lg w-100" 
+                         style="object-fit: cover; max-height: 500px;" 
+                         alt="{{ menu.name }}">
+                {% else %}
+                    <div class="bg-secondary rounded-4 shadow-lg d-flex align-items-center justify-content-center text-white" 
+                         style="height: 400px;">
+                        No Image Available
+                    </div>
+                {% endif %}
+
+                <span class="position-absolute top-0 start-0 bg-warning text-dark fw-bold px-3 py-2 m-3 rounded-pill shadow-sm">
+                    {{ menu.category.name }}
+                </span>
+            </div>
+        </div>
+
+        <div class="col-md-6 ps-md-5" data-aos="fade-left">
+            
+            <h1 class="display-4 fw-bold mb-2" style="font-family: 'Cinzel', serif; color: #2c3e50;">
+                {{ menu.name }}
+            </h1>
+
+            <h2 class="h1 text-warning fw-bold mb-4" style="font-family: 'Cinzel', serif;">
+                ${{ menu.price }}
+            </h2>
+
+            <hr class="w-25 border-top border-3 border-dark mb-4">
+
+            <p class="lead text-muted lh-lg mb-4">
+                {{ menu.description }}
+            </p>
+
+            <div class="mb-5">
+                {% if menu.is_spicy %}
+                    <span class="badge bg-danger p-2 me-2 rounded-pill">
+                        🌶 Spicy Level
+                    </span>
+                {% endif %}
+                
+                {% if not menu.is_available %}
+                    <span class="badge bg-secondary p-2 me-2 rounded-pill">
+                        🚫 Sold Out
+                    </span>
+                {% else %}
+                    <span class="badge bg-success p-2 me-2 rounded-pill">
+                        ✅ Available Today
+                    </span>
+                {% endif %}
+                
+                <span class="badge border text-dark p-2 rounded-pill">Chef's Recommendation</span>
+            </div>
+
+            <div class="d-grid gap-2 d-md-block">
+                {% if menu.is_available %}
+                    <a href="{% url 'book' %}" class="btn btn-dark btn-lg px-5 rounded-pill shadow hover-effect">
+                        Reserve a Table to Try This
+                    </a>
+                {% else %}
+                    <button class="btn btn-secondary btn-lg px-5 rounded-pill disabled">
+                        Currently Unavailable
+                    </button>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 border-top mt-5">
+    <div class="row text-center" data-aos="fade-up">
+        <div class="col-lg-8 mx-auto">
+            <h3 style="font-family: 'Cinzel', serif;">Perfect Pairing</h3>
+            <p class="text-muted">Our Chef recommends pairing this dish with our signature House Sake or Green Tea for the complete experience.</p>
+        </div>
+    </div>
+</div>
+
 {% endblock %}

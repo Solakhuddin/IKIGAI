@@ -1,7 +1,8 @@
 # from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
+
 from .forms import BookingForm
-from .models import Menu, Category
+from .models import Menu, Category, Booking, BookingItem
 
 
 
@@ -14,16 +15,44 @@ def about(request):
 
 def book(request):
     form = BookingForm()
+    # Kita butuh data menu untuk ditampilkan di form
+    categories = Category.objects.prefetch_related('menu_items').all()
+
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
-            form.save()
-    context = {'form':form}
-    return render(request, 'restaurant/book.html', context) 
+            # 1. Simpan Data Booking Dulu (Header)
+            booking_obj = form.save()
+            
+            # 2. Loop semua data yang dikirim user untuk mencari pesanan makanan
+            for key, value in request.POST.items():
+                if key.startswith('menu_') and value:
+                    try:
+                        menu_id = int(key.split('_')[1]) # Ambil ID dari string 'menu_5' -> '5'
+                        qty = int(value)
+                        
+                        if qty > 0:
+                            menu_obj = Menu.objects.get(id=menu_id)
+                            # Simpan ke tabel BookingItem
+                            BookingItem.objects.create(
+                                reservation=booking_obj,
+                                menu_item=menu_obj,
+                                quantity=qty
+                            )
+                    except ValueError:
+                        pass # Abaikan jika data error
+            
+            # Redirect ke halaman sukses/home
+            return redirect('home') 
+
+    context = {
+        'form': form, 
+        'categories': categories # Kirim menu ke template
+    }
+    return render(request, 'restaurant/book.html', context)
 
 # Add your code here to create new views
 def menu(request):
-    # Ambil semua kategori
     # (Optional) prefetch_related digunakan agar query database lebih ringan/cepat
     categories = Category.objects.prefetch_related('menu_items').all()
     

@@ -49,23 +49,27 @@ Prerequisites: Python 3 installed.
    ````
 
 2. **Install Dependencies (Using Pipenv)**
-  ````
+  ````bash
   pip install pipenv
   pipenv install
   pipenv shell
-  ````
+  ````bash
 3. **Apply Migrations**
-  `````
+  ````bash
   python manage.py makemigrations
   python manage.py migrate
-  `` 
+  ````
 
 4. **Create Superuser (For Admin Panel)**
-  ````
+  ````bash
   python manage.py createsuperuser
   ````
 
 5. **Run the Server**  
-  ````
+  ````bash
   python manage.py runserver
   ````
+
+## 👮‍♂️ Admin Dashboard Feature
+
+Don't forget to check the Admin Dashboard to add some menu or blog by go to https://domain.com/admin or http://127.0.0.1:8000/admin if it is run on your local server, login with your superuser and you are good to go 😊😊 

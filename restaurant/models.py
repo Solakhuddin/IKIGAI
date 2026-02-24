@@ -23,7 +23,12 @@ class Booking(models.Model):
 
    def __str__(self):
       return f"{self.first_name} - {self.seating_type} ({self.reservation_date})"
-
+   
+   def total_preorder_cost(self):
+        total = 0
+        for item in self.items.all():
+            total += item.menu_item.price * item.quantity
+        return total
 
 # Add code to create Menu model
 # Model 1: Kategori (Misal: Appetizer, Main Course, Dessert)
@@ -52,3 +57,11 @@ class Menu(models.Model):
 
    def __str__(self):
       return self.name
+   
+class BookingItem(models.Model):
+    reservation = models.ForeignKey(Booking, on_delete=models.CASCADE, related_name='items')
+    menu_item = models.ForeignKey(Menu, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.quantity}x {self.menu_item.name}"
